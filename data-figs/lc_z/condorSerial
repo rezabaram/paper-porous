@@ -1,0 +1,10 @@
+initialdir =  /data/ernie1/arnarvae/reza/mono/lc/
+machine_count = 1
+jobname = #1
+universe = standard
+executable = #1.run
+log = $(jobname).$(cluster).log
+output = $(jobname).$(cluster).out
+error = $(jobname).$(cluster).err
+arguments = -i #1.dat
+queue
