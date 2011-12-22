@@ -1,4 +1,4 @@
-\documentclass[aps,twocolumn,superscriptaddress,showpacs,showkeys]{revtex4}
+\documentclass[aps,twocolumn,superscriptaddress,showpacs,showkeys]{revtex4-1}
 %\documentclass[aps,superscriptaddress,showpacs]{revtex4}
 \usepackage{graphics,graphicx,dcolumn,bm,fleqn,epic,eepic,float,epsfig}
 \usepackage{amssymb,amsmath,multirow,rotate,color,float}
@@ -15,6 +15,14 @@
 %\usepackage{graphicx}
 \newcommand{\erf}{\text{erf}}
 
+%%%%%%%%%%%%%%% macro %%%%%%%%%%%%%%%
+\newcommand{\vbf}[1]{\mathbf{#1}}
+\newcommand{\lc}{{l_{\mathrm{c}}}}  %characteristic lenght
+\newcommand{\dpl}{\nabla p}         %pressure gradient   
+\newcommand{\q}{\vbf{q}}            %volumetric flow
+\newcommand{\area}{A}               %cross-section area
+%%%%%%%%%%%%%%% macro %%%%%%%%%%%%%%%
+
 \begin{document}
 
 \title{Transport properties of deposition of ellipsoidal particles}
@@ -28,9 +36,12 @@
 \affiliation{Center for Theoretical and Computational Physics, 
              University of Lisbon,
              Av.~Prof.~Gama Pinto 2, 1649-003 Lisboa, Portugal}
+
 \author{Jens Harting}
 \email{j.harting@tue.nl}
-\affiliation{TUE, Eindhoven}
+\affiliation{ Department of Applied
+   Physics, TU Eindhoven, P.O. Box 513, NL-5600MB Eindhoven, The 
+   Netherlands }
 
 
 \author{Pedro G.~Lind}
@@ -41,23 +52,26 @@
 \affiliation{Department of Physics, Faculty of Sciences of the
              University of Lisbon, 1649-003 Lisboa, Portugal} 
 
-\author{Ariel Narvaez}
+\author{Ariel Narv\'{a}ez}
 \email{a.e.narvaez.salazar@tue.nl}
-\affiliation{TUE, Eindhoven}
+\affiliation{ Department of Applied
+   Physics, TU Eindhoven, P.O. Box 513, NL-5600MB Eindhoven, The 
+   Netherlands }
 
 \date{\today}
 
 \begin{abstract}
-We study the transport properties of depositions of ellipsoidal particles which has been generated using computer simulations.
-To be written.
+  We study the transport properties of depositions of ellipsoidal particles
+  which has been generated using computer simulations.  To be written.
 
 \end{abstract}
 
 %%%%PACS e Keywords
 \pacs{81.05.Rm,   %Granular materials, fabrication
-           45.70.-n,   %Granular systems, classical mechanics of
-           05.20.-y,   %Classical statistical mechanics
-           45.70.Cc}  %Sandpile modelsk, Compaction granular systems
+      45.70.-n,   %Granular systems, classical mechanics of
+      05.20.-y,   %Classical statistical mechanics
+      45.70.Cc    %Sandpile modelsk, Compaction granular systems
+}
 
 \keywords{Ellipsoidal, Deposition, Porous media, Permeability}
 
@@ -70,44 +84,48 @@ To be written.
 
 %Models for porous media can used both for reconstructing and fundamental study.
 
-Predicting the transport properties of fluids in porous media based on their micro-structure 
-is a challenging problem which has been the focus of many researches over last decades. 
-For example, there have been many attempts to relate the permeability to 
-a relevant length scale characterizing the geometrical structure of the porous medium. 
-This makes sense since the permeability has units of length squared, as defined 
-by Darcy's law [1,2] %\cite{ref:darcy  ref:scheidegger}:
+Predicting the transport properties of fluids in porous media based on their
+micro-structure is a challenging problem which has been the focus of many
+researches over last decades.  For example, there have been many attempts to
+relate the permeability to a relevant length scale characterizing the
+geometrical structure of the porous medium.  This makes sense since the
+permeability $\kappa$ has units of length squared, as defined by Darcy's law
+[1,2] %\cite{ref:darcy ref:scheidegger}
 \begin{equation}
-q=\frac{-\kappa}{\mu} \nabla P,
+\frac{\q}{\area} = -\frac{\kappa}{\mu} \dpl,
 \end{equation}
-where $q$ is the flux (volumetric flow per unit cross-sectional area of the sample), 
-$\nabla P$ is the pressure gradient across the sample and $\mu$ is the fluid viscosity.
-There are numerous approaches based on some sort of length scales, such as hydraulic radius 
-(the ratio of volume to surface of the porous material), which fail to give satisfactory 
+where $\q$ is the volumetric flow, $\area$ is the cross-sectional area of the
+sample, then $\q/\area$ is the flux, $\dpl$ is the pressure gradient across
+the sample and $\mu$ is the fluid viscosity.  There are numerous approaches
+based on some sort of length scales, such as hydraulic radius (the ratio of
+volume to surface of the porous material), which fail to give satisfactory
 predictions, except for simple cases.
 
-Katz and Thompson \cite{ref:KatzThompson1986} reasoned that these attempts appeal to 
-macroscopic geometrical properties and ignore the micro-structure of the porous material.
-They derived, using percolation theory, a relation for the ratio of permeability $\kappa$ to electrical 
-conductivity $\sigma$:
+Katz and Thompson \cite{ref:KatzThompson1986} reasoned that these attempts
+appeal to macroscopic geometrical properties and ignore the micro-structure of
+the porous material.  They derived, using percolation theory, a relation for
+the ratio of permeability $\kappa$ to electrical conductivity $\sigma$:
 \begin{equation}
-\frac{\kappa}{\sigma}=\frac{c l_c^2}{\sigma_0},
+\frac{\kappa}{\sigma} = \frac{c \lc^2}{\sigma_0},
 \label{eq:katz-thompson}
 \end{equation}
-where $\sigma_0$ is the electrical conductivity of the saturating fluid, $c$ is a constant of 
-the order of $\frac{1}{226}$ and $l_c$ is a characteristic length. 
-They estimated $l_c$ experimentally using mercury porosimetry measurements performed on rock samples. 
-The results obtained for permeability using relation \ref{eq:katz-thompson} 
-show impressive agreement with the experimental measurements. 
+where $\sigma_0$ is the electrical conductivity of the saturating fluid, $c$
+is a constant of the order of $\frac{1}{226}$ and $\lc$ is a characteristic
+length.  They estimated $\lc$ experimentally using mercury porosimetry
+measurements performed on rock samples.  The results obtained for permeability
+using relation \ref{eq:katz-thompson} show impressive agreement with the
+experimental measurements.
 
-The characteristic length $l_c$ is obtained by finding the pathway 
-which is both percolating and consists of largest spheres which be 
-inscribed in the pore. 
+The characteristic length $\lc$ is obtained by finding the pathway which is
+both percolating and consists of largest spheres which be inscribed in the
+pore.
 
-In this study, we perform a computational study on the permeability of depositions of ellipsoid 
-particles obtained in a recent work by two of the authors \cite{ref:reza-pedro2011}. 
-We show that the permeability is strongly affected by the anisotropy of the samples [up to 5 times].
-Furthermore, We will show that, while Katz-Thompson relation is valid when the permeability is 
-measured in $x$-$y$ direction, it fails completely in $z$-direction. 
+In this study, we perform a computational study on the permeability of
+depositions of ellipsoid particles obtained in a recent work by two of the
+authors \cite{ref:reza-pedro2011}.  We show that the permeability is strongly
+affected by the anisotropy of the samples [up to 5 times].  Furthermore, We
+will show that, while Katz-Thompson relation is valid when the permeability is
+measured in $x$-$y$ direction, it fails completely in $z$-direction.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
@@ -134,34 +152,36 @@ Discussion and conclusions are given in Sec.~\ref{sec:conclusions}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sample preparation and computational methods}
 \label{sec:simulations}
-For our study, we use deposits of ellipsoidal particles obtained using 
-Molecular Dynamics simulations as described in \cite{ref:reza-pedro2011}.
-The samples are generated by releasing such particles randomly inside a unit box, 
-depositing in $-z$ direction under gravity. The box has periodic boundaries in $x$ and $y$ 
-directions, limited from below by a wall and open from above. The particles are 
-added to the system until the deposit attains a height slightly larger than one. 
-In order to reduce the boundary effect, in all our analyses a layer of thickness $0.15$ 
-from the bottom and $0.05$ from the top are removed.
+For our study, we use deposits of ellipsoidal particles obtained using
+Molecular Dynamics simulations as described in \cite{ref:reza-pedro2011}.  The
+samples are generated by releasing such particles randomly inside a unit box,
+depositing in $-z$ direction under gravity. The box has periodic boundaries in
+$x$ and $y$ directions, limited from below by a wall and open from above. The
+particles are added to the system until the deposit attains a height slightly
+larger than one.  In order to reduce the boundary effect, in all our analyses
+a layer of thickness $0.15$ from the bottom and $0.05$ from the top are
+removed.
 
-The shape of an ellipsoid is characterized by two parameters
-here defined as $\eta=a/b>1$ and $\zeta=b/c>1$, with $a \ge b \ge c$ being 
-the semi-axis radii of the ellipsoid. 
-Therefore, $\eta=1,\zeta>1$ corresponds to an oblate and $\eta>1,\zeta=1$ to a prolate, 
-while  $\eta>1,\zeta>1$ is for a general ellipsoid. 
+The shape of an ellipsoid is characterized by two parameters here defined as
+$\eta=a/b>1$ and $\zeta=b/c>1$, with $a \ge b \ge c$ being the semi-axis radii
+of the ellipsoid.  Therefore, $\eta=1,\zeta>1$ corresponds to an oblate and
+$\eta>1,\zeta=1$ to a prolate, while $\eta>1,\zeta>1$ is for a general
+ellipsoid.
 
-The size $r$ of an ellipsoid is defined as the radius of the sphere 
-of equal volume. Therefore, the shape parameters $\eta \le 1$ and $\zeta \le 1$ 
-together with the size $r>0$ fully specify an ellipsoid in a one-to-one manner.
+The size $r$ of an ellipsoid is defined as the radius of the sphere of equal
+volume. Therefore, the shape parameters $\eta \le 1$ and $\zeta \le 1$
+together with the size $r>0$ fully specify an ellipsoid in a one-to-one
+manner.
  
-In this work, all the samples under the consideration consist of identical particles.  
-Therefore, we will refer to a sample by the parameters of the compositing particle. 
-Figure \ref{fig:deposit} shows a deposit consisting of $N\sim 4200$ ellipsoids 
-with $\eta=2$, $\zeta=1.5$ and $r=0.04$.
+In this work, all the samples under the consideration consist of identical
+particles.  Therefore, we will refer to a sample by the parameters of the
+compositing particle.  Figure \ref{fig:deposit} shows a deposit consisting of
+$N\sim 4200$ ellipsoids with $\eta=2$, $\zeta=1.5$ and $r=0.04$.
 
 
 \begin{figure}
 \begin{center}
-\includegraphics*[width=0.48\textwidth,angle=0]{data-figs/porosity}
+\includegraphics*[width=1.0\columnwidth]{data-figs/porosity}
 \caption{\protect
 	Porosity of deposits as a function of the shape. $\eta$ and $\zeta$ 
 	are the shape parameter of the compositing particles (see text.)
@@ -170,20 +190,21 @@ with $\eta=2$, $\zeta=1.5$ and $r=0.04$.
 \end{center}
 \end{figure}
 
-To study the effect of the shape on the properties of the deposits, 
-samples with the shape parameters from the range $1 \le \eta, \zeta \le 2.5$ 
-are considered. It is known that the shape of the particles a strong effect on 
-porosity of the deposits and, as it deviates from a sphere, leads to stronger 
-anisotropy in the contact network and particle orientations \cite{ref:reza-pedro2011}. 
-Figure \ref{fig:porosity} shows the porosity $\phi$ of deposits as a function of the shape. 
+To study the effect of the shape on the properties of the deposits, samples
+with the shape parameters from the range $1 \le \eta, \zeta \le 2.5$ are
+considered. It is known that the shape of the particles a strong effect on
+porosity of the deposits and, as it deviates from a sphere, leads to stronger
+anisotropy in the contact network and particle orientations
+\cite{ref:reza-pedro2011}.  Figure \ref{fig:porosity} shows the porosity
+$\phi$ of deposits as a function of the shape.
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Permeability}
 \label{sec:permeability}
 \begin{figure}
 \begin{center}
-\includegraphics*[width=0.48\textwidth,angle=0]{data-figs/permeability_x}
-\includegraphics*[width=0.48\textwidth,angle=0]{data-figs/permeability_z}
+\includegraphics*[width=1.0\columnwidth]{data-figs/permeability_x}
+\includegraphics*[width=1.0\columnwidth]{data-figs/permeability_z}
 \caption{\protect
 	Permeability as a function of the shape. $\eta$ and $\zeta$ 
 	are the shape parameter of the compositing particles (see text.)
@@ -192,48 +213,82 @@ Figure \ref{fig:porosity} shows the porosity $\phi$ of deposits as a function of
 \end{center}
 \end{figure}
 
-The calculation of permeability is done using Lattice Boltzmann simulation of a 
-flow through the sample [Ariel may add some more details here]. 
+The calculation of permeability is done using Lattice Boltzmann simulation of
+a flow through the sample [Ariel may add some more details here].
 
-The LB simulations are performed on the discretized version of the samples. Here, 
-we use resolution $\frac{1}{256}$, that is, $256$ cubic cells per unit length in each direction. 
-This resolution has been chosen such that it minimizes the computation time without loss of significant accuracy by 
-comparing the results to that of resolutions $\frac{1}{512}$ and $\frac{1}{1024}$.
+The LB simulations are performed on the discretized version of the
+samples. Here, we use resolution $\frac{1}{256}$, that is, $256$ cubic cells
+per unit length in each direction.  This resolution has been chosen such that
+it minimizes the computation time without loss of significant accuracy by
+comparing the results to that of resolutions $\frac{1}{512}$ and
+$\frac{1}{1024}$.
 
 \begin{figure}
 \begin{center}
-\includegraphics*[width=0.48\textwidth,angle=0]{data-figs/permeability_ratio}
+\includegraphics*[width=1.0\columnwidth]{data-figs/permeability_ratio}
 \caption{\protect
 	Ratio of permeabilities in $z$- and $x$-directions as a function of the shape. 
 	}
 \label{fig:perm_ratio}
 \end{center}
 \end{figure}
-As mentioned briefly in the previous section, the deposits are anisotropic in $z$-direction. 
-Therefore, for all quantities under consideration we perform measurement in two directions, vertical 
-horizontal. 
+As mentioned briefly in the previous section, the deposits are anisotropic in
+$z$-direction.  Therefore, for all quantities under consideration we perform
+measurement in two directions, vertical horizontal.
 
-Figure \ref{fig:perm} shows the permeabilities measured in $x$- and $z$-direction as functions of the shape. 
-One can see that the permeability in $z$-direction, $\kappa_z$, has generally a lower value $x$-direction, $\kappa_x$. This difference 
-becomes more pronounced as the shape deviates from the sphere. This is better seen from the Fig. \ref{fig:perm_ratio} 
-which shows the ratio $\kappa_z/\kappa_x$.
+Figure \ref{fig:perm} shows the permeabilities measured in $x$- and
+$z$-direction as functions of the shape.  One can see that the permeability in
+$z$-direction, $\kappa_z$, has generally a lower value $x$-direction,
+$\kappa_x$. This difference becomes more pronounced as the shape deviates from
+the sphere. This is better seen from the Fig. \ref{fig:perm_ratio} which shows
+the ratio $\kappa_z/\kappa_x$.
 
-This is due to the fact that the particles tend to lie in the horizontal plane, 
-increasing the surface area face the flow from vertical direction.
-This is also the reason why flattening the particles (increasing $\zeta$) 
-has strong effect on the permeability while elongation (increasing $\eta$) 
-has no significant effect.
+This is due to the fact that the particles tend to lie in the horizontal
+plane, increasing the surface area face the flow from vertical direction.
+This is also the reason why flattening the particles (increasing $\zeta$) has
+strong effect on the permeability while elongation (increasing $\eta$) has no
+significant effect.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics*[width=0.23\textwidth,angle=0]{data-figs/lc_x}
-\includegraphics*[width=0.23\textwidth,angle=0]{data-figs/lc_z}
-\includegraphics*[width=0.23\textwidth,angle=0]{data-figs/k_lc_x}
-\includegraphics*[width=0.23\textwidth,angle=0]{data-figs/k_lc_z}
+\includegraphics*[width=0.23\textwidth]{data-figs/lc_x}
+\includegraphics*[width=0.23\textwidth]{data-figs/lc_z}
+\includegraphics*[width=0.23\textwidth]{data-figs/k_lc_x}
+\includegraphics*[width=0.23\textwidth]{data-figs/k_lc_z}
 \caption{\protect
-	Characteristic length $l_c$ in direction $x$ (upper left) and $z$ (upper right), and 
-	the ratio of permeability to $l_c$ in the corresponding direction (two lower plots).
+	Characteristic length $\lc$ in direction $x$ (upper left) and $z$ (upper right), and 
+	the ratio of permeability to $\lc$ in the corresponding direction (two lower plots).
 	}
+\label{fig:lc}
+\end{center}
+\end{figure}
+
+
+radiuos of the related spherical particle
+\begin{equation}
+  r=\sqrt[3]{a\,b\,c}
+\end{equation}
+
+Ellipsoid surface given by Knud Thomsen's formula:
+\begin{equation}
+ s = 4\pi\sqrt[p]{ \frac{ (a\,b)^{p} + (a\,c)^{p} + (b\,c)^{p} }{3}}
+\end{equation}
+where $p = 1.6075$ yields a relative error of at most 1.061.
+
+Sphericity
+\begin{equation}
+  \Phi = \frac{4\pi r}{s}
+\end{equation}
+
+Kozeny-Carman permeability estimation
+\begin{equation}
+\kappa = \frac{4 \Phi^{2}\,r^{2}}{150}\frac{\phi^{3}}{(1-\phi)^{2}}
+\end{equation}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics*[width=1.03\columnwidth]{data-figs/kozeny_carman}
+\caption{Kozeny-Carman permeabily estimation}
 \label{fig:lc}
 \end{center}
 \end{figure}
@@ -242,21 +297,22 @@ has no significant effect.
 \subsection{Characteristic length}
 \label{sec:lc}
 
-In order to check the applicability of Katz-Thompson relation to our samples, 
-we calculate the characteristic length $l_c$. It is defined and calculated as 
-follows. At all points in the pore we define the largest sphere which can be inscribed 
-completely within the pore. Now consider building a continuous pathways through the pore 
-by joining these sphere, always taking the largest one. The radius of the last sphere 
-which completes a percolating pathway through the sample is defined as $l_c$
+In order to check the applicability of Katz-Thompson relation to our samples,
+we calculate the characteristic length $\lc$. It is defined and calculated as
+follows. At all points in the pore we define the largest sphere which can be
+inscribed completely within the pore. Now consider building a continuous
+pathways through the pore by joining these sphere, always taking the largest
+one. The radius of the last sphere which completes a percolating pathway
+through the sample is defined as $\lc$
 
-Figure \ref{fig:lc} shows the results for $l_c$ in $x$- and $z$-directions. 
-As it can be seen they show no significant difference (upper plots). Two lower plots 
-show the ratio of permeability to $l_c$ in the corresponding direction.  While 
-Katz-Thompson seem to be qualitatively valid for $x$-direction, it can be seen clearly that 
-it fails in $z$-direction.
+Figure \ref{fig:lc} shows the results for $\lc$ in $x$- and $z$-directions.
+As it can be seen they show no significant difference (upper plots). Two lower
+plots show the ratio of permeability to $\lc$ in the corresponding direction.
+While Katz-Thompson seem to be qualitatively valid for $x$-direction, it can
+be seen clearly that it fails in $z$-direction.
 
-This leaves us with the question what is the exact mechanism behind such a dramatic difference in 
-two direction.
+This leaves us with the question what is the exact mechanism behind such a
+dramatic difference in two direction.
 
 \subsection{Deposition of ellipsoids as reconstruction models for sandstones}
 \label{sec:sandstone}
