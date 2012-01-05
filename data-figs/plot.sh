@@ -244,7 +244,7 @@ set ticslevel 0
 
 set xlabel "\$\\\\zeta\$" offset 0,-0.5
 set ylabel "\$\\\\eta\$" offset 0.5,0
-set zlabel "\$\\\\kappa/{l_{c}}^{2}\$" offset -1.5,0
+set zlabel "\\\\begin{turn}{90} \$\\\\kappa/{l_{c}}^{2}\$ \\\\end{turn}" offset -1.5,0
 
 splot \
  '< paste x-permeability/data.dat lc_x/lc_512.2.asc' u 1:2:(\$7/(\$10)**2) notitle w pm3d
@@ -427,6 +427,31 @@ splot \
  '< paste ellips.dat z-permeability/data.dat' u 1:2:(sphericity(\$3,\$4,\$5)**2*(2.0*D(\$3,\$4,\$5))**2/150.0*(1-\$8)**3/(\$8)**2*1e6) notitle w pm3d
 -eof1-
 ./temp.sh ${plot}
+
+
+
+plot=resolution
+cat > temp.gp <<- -eof1-
+$head2d
+set out "${plot}.tex"
+
+$margin2d
+
+set xtics ('128' 128, '256' 256, '512' 512, '768' 768)
+
+set yrange [-2:8]
+set format y "%2.1f"
+set ytics 2
+
+set xlabel "resolution"
+set ylabel "relative error [\\\\%]"
+
+plot 'resolution.dat' u 1:((\$3-3.09691492888173747E-006)/3.09691492888173747E-006*100) w lp notitle pt 6 ps 2 lw 2
+-eof1-
+./temp.sh ${plot}
+
+
+
 
 rm temp.sh temp.gp
 

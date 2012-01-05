@@ -16,11 +16,130 @@
 \newcommand{\erf}{\text{erf}}
 
 %%%%%%%%%%%%%%% macro %%%%%%%%%%%%%%%
-\newcommand{\vbf}[1]{\mathbf{#1}}
 \newcommand{\lc}{{l_{\mathrm{c}}}}  %characteristic lenght
 \newcommand{\dpl}{\nabla p}         %pressure gradient   
 \newcommand{\q}{\vbf{q}}            %volumetric flow
 \newcommand{\area}{A}               %cross-section area
+
+\newcommand{\BLA}{BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA }
+
+\newcommand{\fracd}[2]{
+\displaystyle{
+\frac{ \displaystyle{#1} }{ \displaystyle{#2} }
+}
+}
+
+\newcommand{\diff}[1]{\,{\rm d}{#1}}
+\newcommand{\diag}{{\rm diag}}
+
+\newcommand{\taub}{\tau_{\rm bulk}}
+
+\newcommand{\ii}{{\dot{\imath}}}
+\newcommand{\jj}{{\dot{\jmath}}}
+\newcommand{\ib}{\hat{\imath}}
+\renewcommand{\c}{{\bf c}}
+\newcommand{\ci}{\c_{\ii}}
+
+\newcommand{\vbf}[1]{\mathbf{#1}}
+\newcommand{\dt}{\Delta t} 
+\newcommand{\dx}{\Delta x}
+\newcommand{\rhor}{{\rho\!_{_{\circ}}}}
+\newcommand{\drho}{\delta\!\rho}
+
+\newcommand{\acc}{g}
+\newcommand{\bfacc}{\vbf{\acc}}
+
+\newcommand{\dc}{d_{\rm c}}
+
+\newcommand{\uvel}{\vbf{u}}
+\newcommand{\ui}{u_{\ai}}
+\newcommand{\uj}{u_{\aj}}
+\newcommand{\uk}{u_{\ak}}
+\newcommand{\us}{{u_{\rm s}}}
+
+\newcommand{\vvel}{\vbf{v}}
+\newcommand{\vi}{v_{\ai}}
+\newcommand{\vj}{v_{\aj}}
+\newcommand{\vk}{v_{\ak}}
+
+\newcommand{\x}{\vbf{x}}
+\renewcommand{\xi}{x_{\ai}}
+\newcommand{\xj}{x_{\aj}}
+\newcommand{\xk}{x_{\ak}}
+
+\renewcommand{\Xi}{X_{\ai}}
+\newcommand{\Xj}{X_{\aj}}
+\newcommand{\Xk}{X_{\ak}}
+\newcommand{\Xs}{X_{\mc{S}}}
+\newcommand{\Xc}{X_{\mc{C}}}
+
+\newcommand{\ai}{1}
+\newcommand{\aj}{2}
+\newcommand{\ak}{3}
+
+\newcommand{\e}{\vbf{e}}
+\newcommand{\ei}{\e_{\ai}}
+\newcommand{\ej}{\e_{\aj}}
+\newcommand{\ek}{\e_{\ak}}
+
+\newcommand{\f}{f}
+\newcommand{\bff}{\vbf{\f}}
+\newcommand{\bffq}{{\bff}^{\rm eq }}
+\newcommand{\fii}{\f_{\ii}}
+\newcommand{\fq}{\f^{\rm eq}}
+\newcommand{\fqi}{\fq_{\ii}}
+\newcommand{\fj}{\f_{\jj}}
+\newcommand{\fqj}{\fq_{\jj}}
+
+\newcommand{\Vf}{V_{\rm f}}
+\newcommand{\Vt}{V_{\rm t}}
+
+\newcommand{\Ti}{T_{\rm i}}
+\newcommand{\Tf}{T_{\rm f}}
+
+\newcommand{\bfOmega}{\boldsymbol{\Omega}}
+\newcommand{\wwi}{\omega_{\ii}}
+\newcommand{\cs}{{c_{\rm s}}}
+
+\newcommand{\crcl}{\text{\tiny{$\bigcirc$}}}
+
+\newcommand{\FEM}{\ensuremath{\text{FEM}}}
+\newcommand{\LB}{\ensuremath{\text{LB}}}
+\newcommand{\BGK}{\ensuremath{\text{BGK}}}
+\newcommand{\LBBGK}{\ensuremath{\text{LB-BGK}}}
+\newcommand{\MRT}{\ensuremath{\text{MRT}}}
+\newcommand{\LBMRT}{\ensuremath{\text{LB-MRT}}}
+\newcommand{\TRT}{\ensuremath{\text{TRT}}}
+
+\newcommand{\lr}{\ensuremath{\text{l.r.}}}
+\newcommand{\ir}{\ensuremath{\text{i.r.}}}
+\newcommand{\hr}{\ensuremath{\text{h.r.}}}
+
+\newcommand{\CFD}{\ensuremath{\text{CFD}}}
+\newcommand{\mD}{\rm mD}
+
+\renewcommand{\Re}{\ensuremath{\text{Re}}}
+\newcommand{\Ma}{\ensuremath{\rm Ma}}
+\newcommand{\Kn}{\ensuremath{\rm Kn}}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\etal}{\sl et~al.}
+\newcommand{\pwr}[1]{\!\times\!10\sp{#1}}
+\newcommand{\pwrr}[1]{10\sp{#1}}
+\newcommand{\avrg}[1]{\langle #1 \rangle}
+\newcommand{\avrgu}{\avrg{u}}
+
+\newcommand{\m}{m}
+\newcommand{\mi}{\m_{\ii}}
+\newcommand{\bfm}{\vbf{\m}}
+\newcommand{\mq}{\m^{\mathrm{eq}}}
+\newcommand{\mqi}{\m^{\mathrm{eq}}_{\ii}}
+\newcommand{\bfmq}{{\bfm}^{\mathrm{eq}}}
+
+\newcommand{\bfM}{\vbf{M}}
+\newcommand{\bfS}{\vbf{S}}
+\newcommand{\bfhS}{\vbf{\check{S}}}
+\newcommand{\hS}{\check{S}}
 %%%%%%%%%%%%%%% macro %%%%%%%%%%%%%%%
 
 \begin{document}
@@ -62,15 +181,15 @@
 
 \begin{abstract}
   We study the transport properties of depositions of ellipsoidal particles
-  which has been generated using computer simulations.  To be written.
-
+  which has been generated using computer simulations. To be written.
 \end{abstract}
 
 %%%%PACS e Keywords
-\pacs{81.05.Rm,   %Granular materials, fabrication
-      45.70.-n,   %Granular systems, classical mechanics of
-      05.20.-y,   %Classical statistical mechanics
-      45.70.Cc    %Sandpile modelsk, Compaction granular systems
+\pacs{
+81.05.Rm,   %Granular materials, fabrication
+45.70.-n,   %Granular systems, classical mechanics of
+05.20.-y,   %Classical statistical mechanics
+45.70.Cc    %Sandpile modelsk, Compaction granular systems
 }
 
 \keywords{Ellipsoidal, Deposition, Porous media, Permeability}
@@ -81,19 +200,18 @@
 
 \section{Introduction}
 \label{sec:intro}
-
-%Models for porous media can used both for reconstructing and fundamental study.
-
 Predicting the transport properties of fluids in porous media based on their
 micro-structure is a challenging problem which has been the focus of many
-researches over last decades.  For example, there have been many attempts to
+researches over last decades. For example, there have been many attempts to
 relate the permeability to a relevant length scale characterizing the
 geometrical structure of the porous medium.  This makes sense since the
-permeability $\kappa$ has units of length squared, as defined by Darcy's law
-[1,2] %\cite{ref:darcy ref:scheidegger}
+permeability $\kappa$ has units of length squared, as defined by Darcy's
+law~\cite{bib:darcy,bib:scheidegger}
+%
 \begin{equation}
 \frac{\q}{\area} = -\frac{\kappa}{\mu} \dpl,
 \end{equation}
+%
 where $\q$ is the volumetric flow, $\area$ is the cross-sectional area of the
 sample, then $\q/\area$ is the flux, $\dpl$ is the pressure gradient across
 the sample and $\mu$ is the fluid viscosity.  There are numerous approaches
@@ -101,19 +219,21 @@ based on some sort of length scales, such as hydraulic radius (the ratio of
 volume to surface of the porous material), which fail to give satisfactory
 predictions, except for simple cases.
 
-Katz and Thompson \cite{ref:KatzThompson1986} reasoned that these attempts
+Katz and Thompson~\cite{PhysRevB.34.8179} reasoned that these attempts
 appeal to macroscopic geometrical properties and ignore the micro-structure of
 the porous material.  They derived, using percolation theory, a relation for
 the ratio of permeability $\kappa$ to electrical conductivity $\sigma$:
+%
 \begin{equation}
-\frac{\kappa}{\sigma} = \frac{c \lc^2}{\sigma_0},
+\frac{\kappa}{\sigma} = c\frac{\lc^2}{\sigma_0},
 \label{eq:katz-thompson}
 \end{equation}
+%
 where $\sigma_0$ is the electrical conductivity of the saturating fluid, $c$
-is a constant of the order of $\frac{1}{226}$ and $\lc$ is a characteristic
-length.  They estimated $\lc$ experimentally using mercury porosimetry
-measurements performed on rock samples.  The results obtained for permeability
-using relation \ref{eq:katz-thompson} show impressive agreement with the
+is a constant of the order of $1/226$ and $\lc$ is a characteristic
+length, which is estimated experimentally using mercury porosimetry
+measurements performed on rock samples. The results obtained for permeability
+using Eq.~\eqref{eq:katz-thompson} show impressive agreement with the
 experimental measurements.
 
 The characteristic length $\lc$ is obtained by finding the pathway which is
@@ -122,125 +242,253 @@ pore.
 
 In this study, we perform a computational study on the permeability of
 depositions of ellipsoid particles obtained in a recent work by two of the
-authors \cite{ref:reza-pedro2011}.  We show that the permeability is strongly
-affected by the anisotropy of the samples [up to 5 times].  Furthermore, We
+authors~\cite{bib:reza-pedro2011}. We show that the permeability is strongly
+affected by the anisotropy of the samples [up to 5 times]. Furthermore, We
 will show that, while Katz-Thompson relation is valid when the permeability is
-measured in $x$-$y$ direction, it fails completely in $z$-direction.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+measured in $x$- $y$-direction, it fails completely in $z$-direction.
+%
 \begin{figure}
-\begin{center}
-\includegraphics*[width=0.45\textwidth,angle=0]{fig1}
-\caption{\protect
-            (Color online)
-            A deposit consisting of $N\sim 3000 $ ellipsoids 
-            with shape parameters $\eta=2$ and $\zeta=1.5$.
-            Colors are arbitrarily chosen for better visualization.}
+\includegraphics*[width=1.0\columnwidth]{fig1}
+\caption{
 \label{fig:deposit}
-\end{center}
+A deposit consisting of $N \sim 3000 $ ellipsoids with shape parameters
+$\eta=2$ and $\zeta=1.5$.  Colors are arbitrarily chosen for better
+visualization.  }
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
  
-The outline of the paper is as follows. 
-In Sec.~\ref{sec:simulations} we describe preparation of the samples 
-and the methods using which numerical measurements are performed.
-In Sec.~\ref{sec:permeability} we present the results for permeability measurement. 
-We examine the validity of Katz-Thompson relation for our samples in Sec.~\ref{sec:lc}.  
-Discussion and conclusions are given in Sec.~\ref{sec:conclusions}.
-
+The outline of the paper is as follows.  In Sec.~\ref{sec:simulations} we
+describe preparation of the samples and the methods using which numerical
+measurements are performed.  In Sec.~\ref{sec:permeability} we present the
+results for permeability measurement.  We examine the validity of
+Katz-Thompson relation for our samples in Sec.~\ref{sec:lc}.  Discussion and
+conclusions are given in Sec.~\ref{sec:conclusions}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sample preparation and computational methods}
 \label{sec:simulations}
 For our study, we use deposits of ellipsoidal particles obtained using
-Molecular Dynamics simulations as described in \cite{ref:reza-pedro2011}.  The
+Molecular Dynamics simulations as described in~\cite{bib:reza-pedro2011}. The
 samples are generated by releasing such particles randomly inside a unit box,
-depositing in $-z$ direction under gravity. The box has periodic boundaries in
-$x$ and $y$ directions, limited from below by a wall and open from above. The
+depositing in $z$-direction under gravity. The box has periodic boundaries in
+$x$- and $y$-directions, limited from below by a wall and open from above. The
 particles are added to the system until the deposit attains a height slightly
-larger than one.  In order to reduce the boundary effect, in all our analyses
-a layer of thickness $0.15$ from the bottom and $0.05$ from the top are
+larger than one. In order to reduce the boundary effect, in all our analyses a
+layer of thickness $0.15\%$ from the bottom and $0.05\%$ from the top are
 removed.
 
 The shape of an ellipsoid is characterized by two parameters here defined as
-$\eta=a/b>1$ and $\zeta=b/c>1$, with $a \ge b \ge c$ being the semi-axis radii
-of the ellipsoid.  Therefore, $\eta=1,\zeta>1$ corresponds to an oblate and
-$\eta>1,\zeta=1$ to a prolate, while $\eta>1,\zeta>1$ is for a general
-ellipsoid.
+$\eta = a/b > 1$ and $\zeta = b/c > 1$, with $a \ge b \ge c$ being the
+semi-axis radii of the ellipsoid. Therefore, $\eta=1$ and $\zeta>1$
+corresponds to an oblate and $\eta>1$ and $\zeta=1$ to a prolate, while
+$\eta>1$ and $\zeta>1$ is for a general ellipsoid.
 
 The size $r$ of an ellipsoid is defined as the radius of the sphere of equal
-volume. Therefore, the shape parameters $\eta \le 1$ and $\zeta \le 1$
+volume, defined as
+%
+\begin{equation}
+\label{eq:radius}
+  r = \sqrt[3]{a\,b\,c}.
+\end{equation}
+%
+Therefore, the shape parameters $\eta \le 1$ and $\zeta \le 1$
 together with the size $r>0$ fully specify an ellipsoid in a one-to-one
 manner.
+
+The surface of an ellipsoid can be approximately estimated by Knud Thomsen's
+formula
+%
+\begin{equation}
+\label{eq:surface}
+ s = 4\pi\sqrt[p]{ \frac{ (a\,b)^{p} + (a\,c)^{p} + (b\,c)^{p} }{3} },
+\end{equation}
+%
+where $p=1.6075$ yields a relative error of at most $1.061\%$. The sphericity
+%
+\begin{equation}
+\label{eq:sphericity}
+ \Phi = \frac{4\pi r}{s},
+\end{equation}
+%
+is defined by the ratio of the surface area of a sphere with the same volume to
+the surface area of the particle.
  
 In this work, all the samples under the consideration consist of identical
-particles.  Therefore, we will refer to a sample by the parameters of the
-compositing particle.  Figure \ref{fig:deposit} shows a deposit consisting of
-$N\sim 4200$ ellipsoids with $\eta=2$, $\zeta=1.5$ and $r=0.04$.
-
-
+particles. Therefore, we will refer to a sample by the parameters of the
+compositing particle. Fig.~\ref{fig:deposit} shows a deposit consisting of
+$N \sim 4200$ ellipsoids with $\eta=2$, $\zeta=1.5$, and $r=0.04$.
+%
 \begin{figure}
-\begin{center}
 \includegraphics*[width=1.0\columnwidth]{data-figs/porosity}
-\caption{\protect
-	Porosity of deposits as a function of the shape. $\eta$ and $\zeta$ 
-	are the shape parameter of the compositing particles (see text.)
-	}
+\caption{
 \label{fig:porosity}
-\end{center}
+Porosity of deposits as a function of the shape. $\eta$ and $\zeta$ are the
+shape parameter of the compositing particles (see text.)
+}
 \end{figure}
+%
 
 To study the effect of the shape on the properties of the deposits, samples
-with the shape parameters from the range $1 \le \eta, \zeta \le 2.5$ are
+with the shape parameters from the range $1 \le \eta$ and $\zeta \le 2.5$ are
 considered. It is known that the shape of the particles a strong effect on
 porosity of the deposits and, as it deviates from a sphere, leads to stronger
-anisotropy in the contact network and particle orientations
-\cite{ref:reza-pedro2011}.  Figure \ref{fig:porosity} shows the porosity
-$\phi$ of deposits as a function of the shape.
+anisotropy in the contact network and particle
+orientations~\cite{bib:reza-pedro2011}. Fig.~\ref{fig:porosity} shows the
+porosity $\phi$ of deposits as a function of the shape.
 
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Permeability}
 \label{sec:permeability}
+The calculation of permeability is done using the lattice Boltzmann
+method. Many of its properties has been responsible for its popularity in this
+field, i.e. discretization, easy implementation, and parallel running. The
+integration of the Boltzmann equation on a regular lattice, defined by $\dx$,
+with the discrete velocity restricted to the values $\ci$, in unit of
+$\dx/\dt$, where $\dt$ represents the time step, provides the basic difference
+equation for the lattice-Boltzmann method
+%
+\begin{equation}
+\label{LB:MRT:eq}
+\begin{split}
+& \fii(\x+\dt\,\ci,t+\dt)  - \fii(\x,t) = \\
+& \quad -\dt \left[{\bfM}^{-1} \cdot \bfhS \cdot \left( \bfm(\x,t) -
+ \bfmq(\x,t) \right) \right]_{\ii},
+\end{split}
+\end{equation}
+%
+where $\fii(\x,t)$ represent the number of particles moving at the point $\x$
+with velocity $\ci$ at time $t$. The right hand term represents the collision
+operator presented by the multirelaxation time method
+(\MRT)~\cite{2002RSPTA.360..437D} instead of by the most simple-popular
+Bhatnagar, Gross and Krook (\BGK) ``single relation
+time''~\cite{bib:chen-chen-martinez-matthaeus,bib:bgk}.  The \MRT\ collision
+operator reduces well known drawback of the \BGK\ regarding the bounce-back
+no-slip boundary conditions~\cite{bib:cf.CPaLLuCMi.2006,NZRHH10}. The $\bfM$
+is a linear transformation chosen as such that the moments
+%
+\begin{equation}
+\mi (\x,t)=\sum_{\jj} M_{\ii\,\jj} \, \f_{\jj}(\x,t)
+\end{equation}
+%       
+represent hydrodynamic modes of the problem. We use the definitions given
+in~\cite{2002RSPTA.360..437D}, where $\m_{1}$ is the fluid density, $\m_{2}$
+represents the energy, $\mi$ with $\ii=4,6,8$ the momentum flux and $\mi$,
+with $\ii=10,12,14,15,16$ are components of the symmetric traceless stress
+tensor.  During the collision step the density and the momentum flux are
+conserved so that $\mq_{1}=\m_{1}$ and $\mi=\mqi$ with $i=2,4,6$. The
+non-conserved equilibrium moments $\mqi$, $i\neq 1,2,4,6$, are assumed to be
+functions of these conserved moments and explicitly given
+in~\cite{2002RSPTA.360..437D}. 
+$\bfhS$ is a diagonal matrix $\hS_{\ii\,\jj} =
+\check{s}_{\ii} \, \delta_{\ii\,\jj}$. The diagonal element
+$\tau_{\ii}=1/\check{s}_{\ii}$ in the collision matrix is the relaxation time
+of the moment $\mi$. One has
+$\check{s}_{1}=\check{s}_{4}=\check{s}_{6}=\check{s}_{8}=0$, because the
+corresponding moments are conserved. $\check{s}_{2}=1/\taub$ describes the
+relaxation of the energy and
+$\check{s}_{10}=\check{s}_{12}=\check{s}_{14}=\check{s}_{15}=\check{s}_{16}=1/
+\tau$ the relaxation of the stress tensor components. The remaining diagonal
+elements of $\bfhS$ are chosen as
+%
+\begin{equation}
+\begin{split}
+\bfhS = \diag & (0,1/\taub,1.4,0,1.2,0,1.2,0,1.2,1/\tau, \\
+& 1.4,1/\tau,1.4,1/\tau,1/\tau,1/\tau,1.98,1.98,1.98),
+\end{split}
+\end{equation}
+%
+to optimize the algorithm
+performance~\cite{2000PhRvE..61.6546L,2002RSPTA.360..437D}.  These two
+relaxation times $\tau$ and $\taub$, restricted to be $>\dt/2$, remain free to
+define the kinematic and bulk viscosity, respectively.
+
+The macroscopic density $\rho(\x,t)$ and velocity $\uvel(\x,t)$ are obtained
+from $\fii(\x,t)$ as
+%
+\begin{eqnarray}
+\label{rho:eq}
+\rho(\x,t) & = & \rhor \sum_{\ii} \fii(\x,t), \\
+\label{uvel:eq}
+\uvel(\x,t) & = &
+\frac{\rhor}{\rho(\x,t)} \sum_{\ii}\fii(\x,t) \, \ci,
+\end{eqnarray}
+%
+where $\rhor$ is a reference density. The pressure is given by
+%
+\begin{equation}
+\label{eq:p}
+p(\x,t) = {\cs}^{2} \, \rho(\x,t),
+\end{equation}
+%
+where $\cs = 1/\sqrt{3}(\dx/\dt)$ is the speed of
+sound~\cite{bib:qian-dhumieres-lallemand,bib:succi-01}. The kinematic
+viscosity of the fluid is a function of the discretization parameters, $\dx$
+and $\dt$, and the relaxation time
+$\tau$~\cite{bib:chapman-cowling,Wolf05}. It is given by
+%
+\begin{equation}
+\label{nu:eq}
+\nu = \cs^2 \, \dt \left( \frac{\tau}{\dt} - \frac{1}{2} \right).
+\end{equation}
+%
+The reference density is set to $\rhor = \pwrr{3}\,
+\mathrm{kg}\,\mathrm{m}^{-3}$ and the relaxation times are kept at $\taub/\dt
+= 0.80$ and $\taub/\dt = 0.84$.
+
+On the solid walls, no-slip boundary conditions are implemented using within
+the \LB\ method mid-plane bounce back collision
+rules~\cite{SukopThorne2007}. To drive the fluid a pressure drop is impose
+setting the density, see Eq.~\eqref{eq:p}, at the inlet and at the
+outlet. This is done by on-site boundary conditions using the Zou \& He
+method~\cite{bib:pf.QZoXHe.1997,HH08b}. Periodic boundary conditions are
+implemented in the other directions.
+
+
+The lattice Boltzmann simulations are performed on the discretized version of
+the samples. Here, we use a 256~cubic cells per unit length in each
+direction. This resolution has been chosen such that it minimizes the
+computation time without loss of significant accuracy, see Fig.~\ref{fig:resolution}.
+%
 \begin{figure}
-\begin{center}
-\includegraphics*[width=1.0\columnwidth]{data-figs/permeability_x}
-\includegraphics*[width=1.0\columnwidth]{data-figs/permeability_z}
-\caption{\protect
-	Permeability as a function of the shape. $\eta$ and $\zeta$ 
-	are the shape parameter of the compositing particles (see text.)
-	}
-\label{fig:perm}
-\end{center}
+\includegraphics*[width=1.0\columnwidth]{data-figs/resolution}
+\caption{
+Error in the permeability estimation for diferent resolution.
+The sample $\eta =? $ and $\zeta = ?$.
+The realtive error is calculated comparing the results with the one obtained
+using the 768~resolution sample. There is no much
+\label{fig:resolution}
+}
 \end{figure}
-
-The calculation of permeability is done using Lattice Boltzmann simulation of
-a flow through the sample [Ariel may add some more details here].
-
-The LB simulations are performed on the discretized version of the
-samples. Here, we use resolution $\frac{1}{256}$, that is, $256$ cubic cells
-per unit length in each direction.  This resolution has been chosen such that
-it minimizes the computation time without loss of significant accuracy by
-comparing the results to that of resolutions $\frac{1}{512}$ and
-$\frac{1}{1024}$.
-
+%
+%
 \begin{figure}
-\begin{center}
+\begin{tabular}{l l}
+A) & B) \\
+\includegraphics*[width=0.48\columnwidth]{data-figs/permeability_x}
+&
+\includegraphics*[width=0.48\columnwidth]{data-figs/permeability_z} \\
+\end{tabular}
+
+\flushleft C) 
+
 \includegraphics*[width=1.0\columnwidth]{data-figs/permeability_ratio}
-\caption{\protect
-	Ratio of permeabilities in $z$- and $x$-directions as a function of the shape. 
-	}
-\label{fig:perm_ratio}
-\end{center}
+\caption{
+Permeability as a function of the shape. $\eta$ and $\zeta$ 
+are the shape parameter of the compositing particles (see text.).
+Ratio of permeabilities in $z$- and $x$-directions as a function of the shape.
+\label{fig:perm}
+}
 \end{figure}
+%
 As mentioned briefly in the previous section, the deposits are anisotropic in
 $z$-direction.  Therefore, for all quantities under consideration we perform
 measurement in two directions, vertical horizontal.
 
-Figure \ref{fig:perm} shows the permeabilities measured in $x$- and
-$z$-direction as functions of the shape.  One can see that the permeability in
-$z$-direction, $\kappa_z$, has generally a lower value $x$-direction,
+Fig.~\ref{fig:perm}~A) and~B) show the permeabilities measured in $x$- and
+$z$-direction as functions of the shape. One can see that the permeability in
+$z$-direction, $\kappa_z$, has generally a lower value than in $x$-direction,
 $\kappa_x$. This difference becomes more pronounced as the shape deviates from
-the sphere. This is better seen from the Fig. \ref{fig:perm_ratio} which shows
+the sphere. This is better seen from the Fig.~\ref{fig:perm}~C) which shows
 the ratio $\kappa_z/\kappa_x$.
 
 This is due to the fact that the particles tend to lie in the horizontal
@@ -248,55 +496,44 @@ plane, increasing the surface area face the flow from vertical direction.
 This is also the reason why flattening the particles (increasing $\zeta$) has
 strong effect on the permeability while elongation (increasing $\eta$) has no
 significant effect.
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics*[width=0.23\textwidth]{data-figs/lc_x}
-\includegraphics*[width=0.23\textwidth]{data-figs/lc_z}
-\includegraphics*[width=0.23\textwidth]{data-figs/k_lc_x}
-\includegraphics*[width=0.23\textwidth]{data-figs/k_lc_z}
-\caption{\protect
-	Characteristic length $\lc$ in direction $x$ (upper left) and $z$ (upper right), and 
-	the ratio of permeability to $\lc$ in the corresponding direction (two lower plots).
-	}
+%
+\begin{figure*}
+\begin{tabular}{l l l l}
+A) & B) & C) & D) \\
+\includegraphics*[width=0.48\columnwidth]{data-figs/lc_x} &
+\includegraphics*[width=0.48\columnwidth]{data-figs/lc_z} &
+\includegraphics*[width=0.48\columnwidth]{data-figs/k_lc_x} &
+\includegraphics*[width=0.48\columnwidth]{data-figs/k_lc_z}
+\end{tabular}
+\caption{
+A)~Characteristic length $\lc$ in direction $x$.
+B)~Characteristic length $\lc$ in direction $z$.
+C)~Permeability normalized by the characteristic length $\lc$ in direction
+$x$.
+D)~Permeability normalized by the characteristic length $\lc$ in direction $z$.
 \label{fig:lc}
-\end{center}
-\end{figure}
-
-
-radiuos of the related spherical particle
-\begin{equation}
-  r=\sqrt[3]{a\,b\,c}
-\end{equation}
-
-Ellipsoid surface given by Knud Thomsen's formula:
-\begin{equation}
- s = 4\pi\sqrt[p]{ \frac{ (a\,b)^{p} + (a\,c)^{p} + (b\,c)^{p} }{3}}
-\end{equation}
-where $p = 1.6075$ yields a relative error of at most 1.061.
-
-Sphericity
-\begin{equation}
-  \Phi = \frac{4\pi r}{s}
-\end{equation}
+}
+\end{figure*}
+%
 
 Kozeny-Carman permeability estimation
+%
 \begin{equation}
 \kappa = \frac{4 \Phi^{2}\,r^{2}}{150}\frac{\phi^{3}}{(1-\phi)^{2}}
 \end{equation}
+%
 
-\begin{figure}[h]
-\begin{center}
+\begin{figure}
 \includegraphics*[width=1.03\columnwidth]{data-figs/kozeny_carman}
-\caption{Kozeny-Carman permeabily estimation}
+\caption{
 \label{fig:lc}
-\end{center}
+Kozeny-Carman permeabily estimation
+}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Characteristic length}
 \label{sec:lc}
-
 In order to check the applicability of Katz-Thompson relation to our samples,
 we calculate the characteristic length $\lc$. It is defined and calculated as
 follows. At all points in the pore we define the largest sphere which can be
@@ -305,8 +542,8 @@ pathways through the pore by joining these sphere, always taking the largest
 one. The radius of the last sphere which completes a percolating pathway
 through the sample is defined as $\lc$
 
-Figure \ref{fig:lc} shows the results for $\lc$ in $x$- and $z$-directions.
-As it can be seen they show no significant difference (upper plots). Two lower
+Fig.~\ref{fig:lc} shows the results for $\lc$ in $x$- and $z$-directions.  As
+it can be seen they show no significant difference (upper plots). Two lower
 plots show the ratio of permeability to $\lc$ in the corresponding direction.
 While Katz-Thompson seem to be qualitatively valid for $x$-direction, it can
 be seen clearly that it fails in $z$-direction.
@@ -318,26 +555,27 @@ dramatic difference in two direction.
 \label{sec:sandstone}
 Here to present the results following Bibhu's idea.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 \label{sec:conclusions}
 To be written.
-%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
 To be written.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{thebibliography}{99}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{bib/abbrv-unsrt}
+\bibliography{bib/new_bib.bib}
 
-\bibitem{ref:darcy} H. Darcy, Les Fontaines Publiques de la Ville de Dijon, Dalmont, Paris (1985);
+% \begin{thebibliography}{99}
+% \bibitem{ref:darcy} H. Darcy, Les Fontaines Publiques de la Ville de Dijon,
+%   Dalmont, Paris (1985);
 
-\bibitem{ref:Scheidegger} A.E. Scheidegger, ``The Physics of flow through porous media'', 
-	Univ. of Toronto Press, Toronto, (1974)
+% \bibitem{ref:Scheidegger} A.E. Scheidegger, ``The Physics of flow through
+%   porous media'', Univ. of Toronto Press, Toronto, (1974)
 
-\bibitem{ref:reza-pedro2011} Reza M. Baram, Pedro G. Lind, submitted to PRE (2011).
-
-\end{thebibliography}
+% \bibitem{ref:reza-pedro2011} Reza M. Baram, Pedro G. Lind, submitted to PRE
+%   (2011).
+% \end{thebibliography}
 \end{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
